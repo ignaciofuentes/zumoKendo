@@ -5,7 +5,7 @@
         var dataSource = new kendo.data.DataSource({
             transport: {
                 read: function (options) {
-                    q.skip(options.data.skip)
+                    table.skip(options.data.skip)
                      .take(options.data.take)
                      .includeTotalCount()
                      .read()
