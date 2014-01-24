@@ -5,11 +5,12 @@
         var dataSource = new kendo.data.DataSource({
             transport: {
                 read: function (options) {
+                    console.log(options.data);
                     table.skip(options.data.skip)
-                     .take(options.data.take)
-                     .includeTotalCount()
-                     .read()
-                     .done(options.success);
+                         .take(options.data.take)
+                         .includeTotalCount()
+                         .read()
+                         .done(options.success);
                 },
                 update: function (options) {
                     table.update(options.data)
@@ -27,7 +28,6 @@
                 }
             },
             serverPaging: true,
-            serverSorting: true,
             pageSize: 4,
             schema: {
                 total: "totalCount",
@@ -37,6 +37,7 @@
                         id: { type: "number" },
                         name: { type: "string" },
                         developer: { type: "string" },
+                        date: { type: "date" }
                     }
                 }
             }
@@ -50,6 +51,7 @@
                 columns: [
                             "name",
                             "developer",
+                            { field: "date", format: "{0:yyyy/MM/dd}" },
                             {
                                 command: [
                                   { name: "edit", text: "Edit" },
