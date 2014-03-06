@@ -36,8 +36,7 @@
                     fields: {
                         id: { type: "number" },
                         name: { type: "string" },
-                        developer: { type: "string" },
-                        date: { type: "date" }
+                        developer: { type: "string" }
                     }
                 }
             }
@@ -51,7 +50,6 @@
                 columns: [
                             "name",
                             "developer",
-                            { field: "date", format: "{0:yyyy/MM/dd}" },
                             {
                                 command: [
                                   { name: "edit", text: "Edit" },
